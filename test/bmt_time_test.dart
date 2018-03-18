@@ -4,7 +4,7 @@ import 'package:internet_beats/internet_beats.dart';
 
 void main() {
   group('The tests of BMTTime', () {
-
+    
     test('gets valid default instance of BMTTime', () {
       final bmtTime = new BMTTime();
       expect(bmtTime
