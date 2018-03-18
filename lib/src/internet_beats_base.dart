@@ -7,18 +7,18 @@ const millisInDay = 24 * 60 * 60 * 1000;
 class InternetBeatsTime {
   BMTTime theBMTTime;
 
-  /// The default InternetBeats constructor
+  /// The default InternetBeatsTime constructor
   InternetBeatsTime() {
     this.theBMTTime = new BMTTime();
   }
 
-  /// InternetBeats constructor, which uses a local time
+  /// InternetBeatsTime constructor, which uses a local time
   InternetBeatsTime.fromLocalTime(DateTime aLocalTime) {
     assert(aLocalTime.isUtc == false);
     this.theBMTTime = new BMTTime.fromLocalTime(aLocalTime);
   }
 
-  /// InternetBeats constructor, which uses a UTC time
+  /// InternetBeatsTime constructor, which uses a UTC time
   InternetBeatsTime.fromUTCTime(DateTime aUTCTime) {
     assert(aUTCTime.isUtc);
     this.theBMTTime = new BMTTime.fromUTCTime(aUTCTime);
@@ -26,17 +26,22 @@ class InternetBeatsTime {
 
   /// Overrides toString() to provide a String representation of this InternetBeats
   toString() {
-    return "@${this.preciseInternetBeats().floor().toString().padLeft(3, '0')}";
+    return "@${this.preciseInternetBeatsTime().floor().toString().padLeft(3, '0')}";
   }
 
-  /// Returns this InternetBeats as a String
+  /// Returns this InternetBeatsTime as a String
   /// Redundant convenience method
-  String internetBeatsString() {
+  String asInternetBeatsTimeString() {
     return this.toString();
   }
 
+  /// Returns the local time corresponding to the InternetBeatsTime
+  DateTime asLocalTime() {
+    return theBMTTime.asLocal();
+  }
+
   /// Return a decimal representation of this InternetBeats
-  double preciseInternetBeats() {
+  double preciseInternetBeatsTime() {
     DateTime bmtTime = this.theBMTTime.asUniversal();
     return (bmtTime.hour * 60 * 60 * 1000 +
         bmtTime.minute * 60 * 1000 +
