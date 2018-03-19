@@ -1,4 +1,5 @@
 library internet_beats;
 
-export 'src/internet_beats_base.dart';
+export 'src/bmt/bmt_time.dart';
+export 'src/internet_beats_time.dart';
 
