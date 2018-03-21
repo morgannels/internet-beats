@@ -1,9 +1,8 @@
 # internet_beats
 
-A library for Dart developers.
-
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+A library for Dart developers to generate and manage instances
+of [Internet Time](https://en.wikipedia.org/wiki/Swatch_Internet_Time)
+in the form of Internet Beats.
 
 ## Usage
 
@@ -12,11 +11,13 @@ A simple usage example:
     import 'package:internet_beats/internet_beats.dart';
 
     main() {
-      var awesome = new Awesome();
+      InternetBeatsTime theTime = new InternetBeatsTime();
+
+      print("Here, the time is ${theTime.asLocalTime()}");
+      print("Everywhere, the time is ${theTime.asInternetBeatsTimeString()} " +
+            "or more precisely: ${theTime.preciseInternetBeatsTime()}");
     }
 
 ## Features and bugs
 
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
+Please e-mail feature requests and bugs to [Morgan Sandquist](mailto:morgannels@gmail.com).
